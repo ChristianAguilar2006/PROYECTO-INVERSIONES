@@ -5,8 +5,7 @@ import { InversionService } from '../inversion,service';
 
 @Component({
   selector: 'app-ingreso-usuario',
-  standalone: true,
-  imports: [FormsModule],
+  standalone: false,
   templateUrl: './ingreso-usuario.component.html',
   styleUrl: './ingreso-usuario.component.css'
 })

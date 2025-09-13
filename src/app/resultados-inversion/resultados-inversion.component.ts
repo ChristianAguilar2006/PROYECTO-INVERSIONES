@@ -4,8 +4,7 @@ import { InversionService } from '../inversion,service';
 
 @Component({
   selector: 'app-resultados-inversion',
-  standalone: true,
-  imports: [CurrencyPipe],
+  standalone: false,
   templateUrl: './resultados-inversion.component.html',
   styleUrl: './resultados-inversion.component.css'
 })
@@ -15,7 +14,7 @@ private inversionService=inject(InversionService);
 
 
 get resultados(){
-  return this.inversionService.infoResulatados;
+  return this.inversionService.infoResultado;
 }
     
  

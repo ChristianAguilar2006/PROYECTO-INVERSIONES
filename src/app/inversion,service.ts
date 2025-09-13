@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, signal } from "@angular/core";
 import { type IngresoInversion } from "./ingreso-inversion-model";
 
 
@@ -7,15 +7,18 @@ import { type IngresoInversion } from "./ingreso-inversion-model";
 })
 export class InversionService{
 
+infoResultado = signal<
+  {
+    anio: number;
+    interes: number;
+    valorFinalAnio: number;
+    inversionAnual: number;
+    interesTotal: number;
+    montoTotalInvertido: number;
+  }[] | undefined
+>(undefined);
 
-  infoResulatados?: {
-     anio: number;
-  interes: number;
-  valorFinalAnio: number;
-  inversionAnual: number;
-  interesTotal: number;
-  montoTotalInvertido: number;
-  }[]
+
 calcularResultadosInversion(info: IngresoInversion) {
   const { inversionInicial, duracion, inversionAnual, rendimientoEsperado } = info;
 
@@ -39,7 +42,7 @@ calcularResultadosInversion(info: IngresoInversion) {
   }
 
  // this.infoResultados.set(datosAnuales);
- this.infoResulatados=datosAnuales;
+ this.infoResultado.set(datosAnuales);
 }
 
 }

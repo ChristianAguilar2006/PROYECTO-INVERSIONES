@@ -1,14 +1,9 @@
-import { Component, signal } from '@angular/core';
-import { EncabezadoComponent } from "./encabezado/encabezado.component";
-import { IngresoUsuarioComponent } from "./ingreso-usuario/ingreso-usuario.component";
-import { type IngresoInversion } from './ingreso-inversion-model';
-import { ResultadosInversionComponent } from "./resultados-inversion/resultados-inversion.component";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-raiz',
-  standalone: true,
+  standalone: false,
   templateUrl: './app.component.html',
-  imports: [EncabezadoComponent, IngresoUsuarioComponent, ResultadosInversionComponent],
 })
 export class AppComponent {
 
