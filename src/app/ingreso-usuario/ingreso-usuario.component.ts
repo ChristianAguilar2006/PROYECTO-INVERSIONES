@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { type IngresoInversion } from '../ingreso-inversion-model';
+import { InversionService } from '../inversion,service';
 
 @Component({
   selector: 'app-ingreso-usuario',
@@ -11,25 +12,30 @@ import { type IngresoInversion } from '../ingreso-inversion-model';
 })
 export class IngresoUsuarioComponent {
 
-  @Output() calcular = new EventEmitter<IngresoInversion>();
 
 
+  inversionInicialIngresada = signal('0');
 
-  inversionInicialIngresada = '0';
+  inversionAnualIngresada = signal('0');
 
-  inversionAnualIngresada = '0';
+  rendimientoEsperado = signal('5');
+  duracionEsperada = signal('10');
 
-  rendimientoEsperado = '5';
-  duracionEsperada = '5';
-
+  constructor(private inversionService:InversionService ){}
 
   alEnviar() {
-    this.calcular.emit({
-      inversionInicial: + this.inversionInicialIngresada,
-      inversionAnual: +this.inversionAnualIngresada,
-      duracion: +this.duracionEsperada,
-      rendimientoEsperado: +this.rendimientoEsperado
+    this.inversionService.calcularResultadosInversion({
+      inversionInicial: + this.inversionInicialIngresada(),
+      inversionAnual: +this.inversionAnualIngresada(),
+      duracion: +this.duracionEsperada(),
+      rendimientoEsperado: +this.rendimientoEsperado()
     })
+    this.inversionInicialIngresada = signal('0');
+    this.inversionAnualIngresada=signal('0');
+    this.rendimientoEsperado=signal('5');
+    this.duracionEsperada=signal('10');
+
+
   }
 
 }
