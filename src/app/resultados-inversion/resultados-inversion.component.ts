@@ -6,7 +6,7 @@ import { InversionService } from '../inversion,service';
   selector: 'app-resultados-inversion',
   standalone: false,
   templateUrl: './resultados-inversion.component.html',
-  styleUrl: './resultados-inversion.component.css'
+  styleUrls: ['./resultados-inversion.component.css']
 })
 export class ResultadosInversionComponent {
 

@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { type IngresoInversion } from '../ingreso-inversion-model';
-import { InversionService } from '../inversion,service';
+import { InversionService } from '../inversion,service'
 
 @Component({
   selector: 'app-ingreso-usuario',
